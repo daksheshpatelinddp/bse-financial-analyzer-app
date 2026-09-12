@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSE Financial Results Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="brand">
+        <h1>📊 BSE Financial Results Analyzer</h1>
+        <p>Real-time Quarterly Result Monitor & AI Insights</p>
+      </div>
+      <div class="header-actions">
+        <button id="checkNowBtn" class="btn primary">⚡ Check now</button>
+        <button id="refreshBtn" class="btn secondary">🔄 Refresh</button>
+      </div>
+    </header>
+
+    <div class="status-bar">
+      <span id="lastCheckText">Ready to monitor BSE announcements...</span>
+    </div>
+
+    <main class="main-content">
+      <!-- Sidebar / Controls -->
+      <aside class="sidebar">
+        <!-- Notification Settings Card -->
+        <section class="card">
+          <h2>Notifications</h2>
+          <div class="toggle-group">
+            <label class="switch-label">
+              <span>Telegram Alerts</span>
+              <input type="checkbox" id="telegramToggle">
+            </label>
+            <label class="switch-label">
+              <span>Ntfy Alerts</span>
+              <input type="checkbox" id="ntfyToggle">
+            </label>
+          </div>
+        </section>
+
+        <!-- Watchlist Management Card -->
+        <section class="card">
+          <div class="card-header">
+            <h2>Watchlist <span id="watchlistCount">(0)</span></h2>
+            <button id="clearWatchlistBtn" class="btn-text danger">Clear All</button>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="watchInput" placeholder="Scrip code (532540) or Name (KPIT)" />
+            <button id="addWatchBtn" class="btn secondary">Add</button>
+          </div>
+
+          <div class="upload-zone">
+            <label for="csvFileInput" class="file-label">📁 Import CSV Scrip List</label>
+            <input type="file" id="csvFileInput" accept=".csv, .txt" />
+          </div>
+
+          <div id="whitelistContainer" class="watchlist-list">
+            <!-- Dynamically populated scrip tags -->
+          </div>
+        </section>
+      </aside>
+
+      <!-- Main Results Feed -->
+      <section class="feed-section">
+        <div class="feed-header">
+          <h2>Financial Result Alerts</h2>
+          <span id="feedCount" class="badge-count">Loading…</span>
+        </div>
+        <div id="results" class="results-grid">
+          <!-- Dynamically populated alert cards -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
