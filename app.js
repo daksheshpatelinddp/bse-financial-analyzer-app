@@ -214,10 +214,9 @@ function renderAnnouncements() {
           return String(iso);
         }
       };
-      const published = fmt(item.pubDate);
-      const fetched = fmt(item.fetchedAt);
+      const detected = fmt(item.fetchedAt);
       const link = item.link
-        ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener">📄 Open Financial PDF Attachment</a>`
+        ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener">📄 View Financial Result</a>`
         : "";
       return `
       <article class="alert-card is-alert">
@@ -226,9 +225,9 @@ function renderAnnouncements() {
           <span class="badge alert">FINANCIAL RESULT</span>
         </div>
         <p class="title">${escapeHtml(item.title || "Financial Result Announcement")}</p>
+        ${item.description ? `<p class="muted">${escapeHtml(item.description)}</p>` : ""}
         <div class="meta">
-          <span><b>Published:</b> ${escapeHtml(published)}</span>
-          <span><b>Fetched:</b> ${escapeHtml(fetched)}</span>
+          <span><b>Detected:</b> ${escapeHtml(detected)}</span>
         </div>
         ${link}
       </article>`;
